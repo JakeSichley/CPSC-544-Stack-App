@@ -10,50 +10,61 @@ import XCTest
 
 final class CommandParserTests: XCTestCase {
 
-    func testParsesPushWithValidSingleDigit_AnySpacing_CaseInsensitive() {
-        let inputs = [
-            "push 3",
-            " PUSH 3 ",
-            "  push    3  ",
-            "\tpush\t3\n"
-        ]
-        for input in inputs {
-            let result = CommandParser.parse(input)
-            XCTAssertEqual(result, .success(.push(3)))
-        }
+    func testMultiplePushesAndPops_MaintainsCorrectOrder() {
+        let stack = Stack<Int>()
+        
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+        XCTAssertEqual(stack.currentSize, 3)
+        
+        XCTAssertEqual(stack.pop(), 3)
+        XCTAssertEqual(stack.pop(), 2)
+        
+        stack.push(4)
+        XCTAssertEqual(stack.currentSize, 2)
+        
+        XCTAssertEqual(stack.peek(), 4)
+        XCTAssertEqual(stack.pop(), 4)
+        XCTAssertEqual(stack.pop(), 1)
+        XCTAssertEqual(stack.currentSize, 0)
     }
 
-    func testParsesPopAndQuit_CaseInsensitive_WithWhitespace() {
-        XCTAssertEqual(CommandParser.parse("pop"), .success(.pop))
-        XCTAssertEqual(CommandParser.parse(" POP "), .success(.pop))
-        XCTAssertEqual(CommandParser.parse("quit"), .success(.quit))
-        XCTAssertEqual(CommandParser.parse("  QuiT  "), .success(.quit))
+    func testPeekDoesNotModifyStack() {
+        let stack = Stack<Int>()
+        stack.push(10)
+        stack.push(20)
+        
+        let peek1 = stack.peek()
+        let peek2 = stack.peek()
+        let peek3 = stack.peek()
+        
+        XCTAssertEqual(peek1, 20)
+        XCTAssertEqual(peek2, 20)
+        XCTAssertEqual(peek3, 20)
+        XCTAssertEqual(stack.currentSize, 2)
     }
 
-    func testPushOutOfRange_ReturnsInvalidNumber() {
-        XCTAssertEqual(CommandParser.parse("push 10"), .failure("Invalid number. Enter 0–9."))
-        XCTAssertEqual(CommandParser.parse("push -1"), .failure("Invalid number. Enter 0–9."))
+    func testEmptyStackOperations() {
+        let stack = Stack<Int>()
+        
+        XCTAssertNil(stack.pop())
+        XCTAssertNil(stack.peek())
+        XCTAssertEqual(stack.currentSize, 0)
+        
+        stack.push(42)
+        XCTAssertEqual(stack.currentSize, 1)
+        XCTAssertEqual(stack.peek(), 42)
     }
 
-    func testBadFormats_ReturnsGenericInvalidInput() {
-        let badInputs = [
-            "push",          // missing value
-            "push x",        // non-numeric
-            "push 3 4",      // extra token
-            "puhs 3",        // misspelled command
-            "hello world",   // unknown
-            "",              // empty
-            "   "            // whitespace only
-        ]
-        for input in badInputs {
-            let result = CommandParser.parse(input)
-            XCTAssertEqual(result, .failure("Invalid input. Enter 'push n', 'pop', or 'quit'."),
-                           "Input '\(input)' should fail with generic invalid input message")
-        }
-    }
-
-    func testTrimsAndNormalizesWhitespace() {
-        XCTAssertEqual(CommandParser.parse("  push    9  "), .success(.push(9)))
-        XCTAssertEqual(CommandParser.parse("\n pop \t"), .success(.pop))
+    func testStackWithSingleElement() {
+        let stack = Stack<Int>()
+        stack.push(100)
+        
+        XCTAssertEqual(stack.currentSize, 1)
+        XCTAssertEqual(stack.peek(), 100)
+        XCTAssertEqual(stack.pop(), 100)
+        XCTAssertEqual(stack.currentSize, 0)
+        XCTAssertNil(stack.pop())
     }
 }

@@ -5,40 +5,37 @@
 
 import Foundation
 
-public struct Stack {
-    public private(set) var contents: [Int]
-    public let maxSize: Int
-
-    public init(maxSize: Int = 3, contents: [Int] = []) {
-        self.maxSize = maxSize
-        self.contents = contents
+public final class Stack<T> {
+    
+    // MARK: - Properties
+    
+    private var stack: [T]
+    
+    public var currentSize: Int {
+        return stack.count
     }
-
-    public var isEmpty: Bool { contents.isEmpty }
-    public var isFull: Bool { contents.count >= maxSize }
-
-    public mutating func push(_ value: Int) -> PushOutcome {
-        if isFull {
-            return .full
-        }
-        contents.append(value)
-        return .pushed(value)
+    
+    // MARK: - Lifecycle
+    
+    public init() {
+        stack = []
     }
-
-    public mutating func pop() -> PopOutcome {
-        guard let last = contents.popLast() else {
-            return .empty
-        }
-        return .popped(last)
+    
+    public init(_ elements: [T]) {
+        stack = elements
     }
-}
-
-public enum PushOutcome: Equatable {
-    case pushed(Int)
-    case full
-}
-
-public enum PopOutcome: Equatable {
-    case popped(Int)
-    case empty
+    
+    // MARK: - Tasks
+    
+    public func push(_ element: T) {
+        stack.append(element)
+    }
+    
+    public func pop() -> T? {
+        return stack.popLast()
+    }
+    
+    public func peek() -> T? {
+        return stack.last
+    }
 }

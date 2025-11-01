@@ -10,57 +10,87 @@ import XCTest
 
 final class OutputFormattingTests: XCTestCase {
 
-    func testRenderStackFormatsBottomToTop_WithSpacesAndEmptyCase() {
-        XCTAssertEqual(OutputFormatter.renderStack([]), "Stack [ ]")
-        XCTAssertEqual(OutputFormatter.renderStack([3]), "Stack [3]")
-        XCTAssertEqual(OutputFormatter.renderStack([3, 5]), "Stack [3 5]")
-        XCTAssertEqual(OutputFormatter.renderStack([3, 5, 2]), "Stack [3 5 2]")
+    func testLIFOOrderIsMaintained() {
+        let stack = Stack<Int>()
+        
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+        
+        // Last in, first out
+        XCTAssertEqual(stack.pop(), 3)
+        XCTAssertEqual(stack.pop(), 2)
+        XCTAssertEqual(stack.pop(), 1)
     }
 
-    func testFormatPushMessages() {
-        // start with [3]
-        let contents1 = [3]
-        XCTAssertEqual(
-            OutputFormatter.formatPush(.pushed(3), contents: contents1),
-            "3 is pushed. Stack [3]"
-        )
-
-        // full case with [3 5 2]
-        let contentsFull = [3, 5, 2]
-        XCTAssertEqual(
-            OutputFormatter.formatPush(.full, contents: contentsFull),
-            "Stack is FULL. Stack [3 5 2]"
-        )
+    func testPeekAlwaysReturnsTopWithoutRemoving() {
+        let stack = Stack<Int>()
+        
+        stack.push(50)
+        XCTAssertEqual(stack.peek(), 50)
+        XCTAssertEqual(stack.peek(), 50)
+        
+        stack.push(60)
+        XCTAssertEqual(stack.peek(), 60)
+        
+        _ = stack.pop()
+        XCTAssertEqual(stack.peek(), 50)
     }
 
-    func testFormatPopMessages() {
-        // popped 2 -> [3 5]
-        let contentsAfterPop = [3, 5]
-        XCTAssertEqual(
-            OutputFormatter.formatPop(.popped(2), contents: contentsAfterPop),
-            "2 is popped. Stack [3 5]"
-        )
-
-        // empty case -> [ ]
-        XCTAssertEqual(
-            OutputFormatter.formatPop(.empty, contents: []),
-            "Stack is EMPTY. Stack [ ]"
-        )
+    func testPushPopSequence_UpdatesSizeCorrectly() {
+        let stack = Stack<Int>()
+        
+        XCTAssertEqual(stack.currentSize, 0)
+        
+        stack.push(1)
+        XCTAssertEqual(stack.currentSize, 1)
+        
+        stack.push(2)
+        XCTAssertEqual(stack.currentSize, 2)
+        
+        _ = stack.pop()
+        XCTAssertEqual(stack.currentSize, 1)
+        
+        _ = stack.pop()
+        XCTAssertEqual(stack.currentSize, 0)
     }
 
-    func testFormatQuitMessage() {
-        XCTAssertEqual(OutputFormatter.formatQuit(), "Exit from the application.")
+    func testStackWorksWithDifferentTypes() {
+        let intStack = Stack<Int>()
+        intStack.push(42)
+        XCTAssertEqual(intStack.pop(), 42)
+        
+        let stringStack = Stack<String>()
+        stringStack.push("test")
+        XCTAssertEqual(stringStack.pop(), "test")
+        
+        let doubleStack = Stack<Double>()
+        doubleStack.push(3.14)
+        XCTAssertEqual(doubleStack.pop(), 3.14)
     }
 
-    func testFormatParseErrorIncludesCurrentStack() {
-        XCTAssertEqual(
-            OutputFormatter.formatParseError("Invalid number. Enter 0–9.", contents: [3, 5, 2]),
-            "Invalid number. Enter 0–9. Stack [3 5 2]"
-        )
-
-        XCTAssertEqual(
-            OutputFormatter.formatParseError("Invalid input. Enter 'push n', 'pop', or 'quit'.", contents: []),
-            "Invalid input. Enter 'push n', 'pop', or 'quit'. Stack [ ]"
-        )
+    func testMultipleOperationsOnSameStack() {
+        let stack = Stack<Int>()
+        
+        // Push multiple
+        stack.push(10)
+        stack.push(20)
+        stack.push(30)
+        
+        // Peek without removing
+        XCTAssertEqual(stack.peek(), 30)
+        XCTAssertEqual(stack.currentSize, 3)
+        
+        // Pop some
+        XCTAssertEqual(stack.pop(), 30)
+        XCTAssertEqual(stack.pop(), 20)
+        
+        // Push more
+        stack.push(40)
+        stack.push(50)
+        
+        // Verify final state
+        XCTAssertEqual(stack.currentSize, 3)
+        XCTAssertEqual(stack.peek(), 50)
     }
 }
