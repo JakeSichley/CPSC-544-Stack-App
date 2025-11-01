@@ -14,7 +14,6 @@
 		412AFAC52EB0532600BA3B0C /* StackAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AFAC42EB0532600BA3B0C /* StackAppUITests.swift */; };
 		412AFAC72EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AFAC62EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift */; };
 		DFF39F0B2EB272DB00A82231 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F0A2EB272DB00A82231 /* Stack.swift */; };
-		DFF39F112EB272FD00A82231 /* TDDNotes.md in Resources */ = {isa = PBXBuildFile; fileRef = DFF39F102EB272FD00A82231 /* TDDNotes.md */; };
 		DFF39F132EB2761600A82231 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F122EB2760E00A82231 /* StackTests.swift */; };
 		DFF39F152EB2764F00A82231 /* CommandParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F142EB2764100A82231 /* CommandParserTests.swift */; };
 		DFF39F172EB2769C00A82231 /* OutputFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F162EB2769200A82231 /* OutputFormattingTests.swift */; };
@@ -107,7 +106,6 @@
 				412AFAAD2EB0532600BA3B0C /* Assets.xcassets */,
 				412AFAAF2EB0532600BA3B0C /* Preview Content */,
 				DFF39F0A2EB272DB00A82231 /* Stack.swift */,
-				DFF39F102EB272FD00A82231 /* TDDNotes.md */,
 			);
 			path = StackApp;
 			sourceTree = "<group>";
@@ -126,6 +124,7 @@
 				DFF39F162EB2769200A82231 /* OutputFormattingTests.swift */,
 				DFF39F142EB2764100A82231 /* CommandParserTests.swift */,
 				DFF39F122EB2760E00A82231 /* StackTests.swift */,
+				DFF39F102EB272FD00A82231 /* TDDNotes.md */,
 			);
 			path = StackAppTests;
 			sourceTree = "<group>";
@@ -244,7 +243,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				412AFAB12EB0532600BA3B0C /* Preview Assets.xcassets in Resources */,
-				DFF39F112EB272FD00A82231 /* TDDNotes.md in Resources */,
 				412AFAAE2EB0532600BA3B0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
