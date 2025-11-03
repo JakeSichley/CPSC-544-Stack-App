@@ -3,21 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
-
-/* Begin PBXBuildFile section */
-		412AFAAA2EB0532500BA3B0C /* StackAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AFAA92EB0532500BA3B0C /* StackAppApp.swift */; };
-		412AFAAC2EB0532500BA3B0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AFAAB2EB0532500BA3B0C /* ContentView.swift */; };
-		412AFAAE2EB0532600BA3B0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412AFAAD2EB0532600BA3B0C /* Assets.xcassets */; };
-		412AFAB12EB0532600BA3B0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 412AFAB02EB0532600BA3B0C /* Preview Assets.xcassets */; };
-		412AFAC52EB0532600BA3B0C /* StackAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AFAC42EB0532600BA3B0C /* StackAppUITests.swift */; };
-		412AFAC72EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412AFAC62EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift */; };
-		DFF39F0B2EB272DB00A82231 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F0A2EB272DB00A82231 /* Stack.swift */; };
-		DFF39F132EB2761600A82231 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F122EB2760E00A82231 /* StackTests.swift */; };
-		DFF39F152EB2764F00A82231 /* CommandParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F142EB2764100A82231 /* CommandParserTests.swift */; };
-		DFF39F172EB2769C00A82231 /* OutputFormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF39F162EB2769200A82231 /* OutputFormattingTests.swift */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		412AFAB72EB0532600BA3B0C /* PBXContainerItemProxy */ = {
@@ -38,20 +25,25 @@
 
 /* Begin PBXFileReference section */
 		412AFAA62EB0532500BA3B0C /* StackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		412AFAA92EB0532500BA3B0C /* StackAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAppApp.swift; sourceTree = "<group>"; };
-		412AFAAB2EB0532500BA3B0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		412AFAAD2EB0532600BA3B0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		412AFAB02EB0532600BA3B0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		412AFAB62EB0532600BA3B0C /* StackAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		412AFAC02EB0532600BA3B0C /* StackAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		412AFAC42EB0532600BA3B0C /* StackAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAppUITests.swift; sourceTree = "<group>"; };
-		412AFAC62EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DFF39F0A2EB272DB00A82231 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		DFF39F102EB272FD00A82231 /* TDDNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TDDNotes.md; sourceTree = "<group>"; };
-		DFF39F122EB2760E00A82231 /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
-		DFF39F142EB2764100A82231 /* CommandParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandParserTests.swift; sourceTree = "<group>"; };
-		DFF39F162EB2769200A82231 /* OutputFormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputFormattingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4114FD372EB8602900A8523D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TDDNotes.md,
+			);
+			target = 412AFAB52EB0532600BA3B0C /* StackAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4114FD282EB8601D00A8523D /* StackApp */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = StackApp; sourceTree = "<group>"; };
+		4114FD322EB8602900A8523D /* StackAppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4114FD372EB8602900A8523D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = StackAppTests; sourceTree = "<group>"; };
+		4114FD3B2EB8604000A8523D /* StackAppUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = StackAppUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		412AFAA32EB0532500BA3B0C /* Frameworks */ = {
@@ -81,9 +73,9 @@
 		412AFA9D2EB0532500BA3B0C = {
 			isa = PBXGroup;
 			children = (
-				412AFAA82EB0532500BA3B0C /* StackApp */,
-				412AFAB92EB0532600BA3B0C /* StackAppTests */,
-				412AFAC32EB0532600BA3B0C /* StackAppUITests */,
+				4114FD282EB8601D00A8523D /* StackApp */,
+				4114FD322EB8602900A8523D /* StackAppTests */,
+				4114FD3B2EB8604000A8523D /* StackAppUITests */,
 				412AFAA72EB0532500BA3B0C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,46 +88,6 @@
 				412AFAC02EB0532600BA3B0C /* StackAppUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		412AFAA82EB0532500BA3B0C /* StackApp */ = {
-			isa = PBXGroup;
-			children = (
-				412AFAA92EB0532500BA3B0C /* StackAppApp.swift */,
-				412AFAAB2EB0532500BA3B0C /* ContentView.swift */,
-				412AFAAD2EB0532600BA3B0C /* Assets.xcassets */,
-				412AFAAF2EB0532600BA3B0C /* Preview Content */,
-				DFF39F0A2EB272DB00A82231 /* Stack.swift */,
-			);
-			path = StackApp;
-			sourceTree = "<group>";
-		};
-		412AFAAF2EB0532600BA3B0C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				412AFAB02EB0532600BA3B0C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		412AFAB92EB0532600BA3B0C /* StackAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				DFF39F162EB2769200A82231 /* OutputFormattingTests.swift */,
-				DFF39F142EB2764100A82231 /* CommandParserTests.swift */,
-				DFF39F122EB2760E00A82231 /* StackTests.swift */,
-				DFF39F102EB272FD00A82231 /* TDDNotes.md */,
-			);
-			path = StackAppTests;
-			sourceTree = "<group>";
-		};
-		412AFAC32EB0532600BA3B0C /* StackAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				412AFAC42EB0532600BA3B0C /* StackAppUITests.swift */,
-				412AFAC62EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift */,
-			);
-			path = StackAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +104,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4114FD282EB8601D00A8523D /* StackApp */,
 			);
 			name = StackApp;
 			productName = StackApp;
@@ -171,6 +126,9 @@
 			dependencies = (
 				412AFAB82EB0532600BA3B0C /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				4114FD322EB8602900A8523D /* StackAppTests */,
+			);
 			name = StackAppTests;
 			productName = StackAppTests;
 			productReference = 412AFAB62EB0532600BA3B0C /* StackAppTests.xctest */;
@@ -188,6 +146,9 @@
 			);
 			dependencies = (
 				412AFAC22EB0532600BA3B0C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4114FD3B2EB8604000A8523D /* StackAppUITests */,
 			);
 			name = StackAppUITests;
 			productName = StackAppUITests;
@@ -242,8 +203,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412AFAB12EB0532600BA3B0C /* Preview Assets.xcassets in Resources */,
-				412AFAAE2EB0532600BA3B0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,9 +227,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412AFAAC2EB0532500BA3B0C /* ContentView.swift in Sources */,
-				DFF39F0B2EB272DB00A82231 /* Stack.swift in Sources */,
-				412AFAAA2EB0532500BA3B0C /* StackAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +234,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFF39F132EB2761600A82231 /* StackTests.swift in Sources */,
-				DFF39F172EB2769C00A82231 /* OutputFormattingTests.swift in Sources */,
-				DFF39F152EB2764F00A82231 /* CommandParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +241,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412AFAC72EB0532600BA3B0C /* StackAppUITestsLaunchTests.swift in Sources */,
-				412AFAC52EB0532600BA3B0C /* StackAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
