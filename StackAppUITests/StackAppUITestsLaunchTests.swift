@@ -1,18 +1,11 @@
-//
-//  StackAppUITestsLaunchTests.swift
-//  StackAppUITests
-//
-//  Created by Jake Sichley on 10/27/25.
-//
-
 import XCTest
 
 final class StackAppUITestsLaunchTests: XCTestCase {
-
+    
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
-
+    
     func testLaunch() throws {
         // UI test disabled due to appearance mode authorization issues
         // This is a known issue with UI tests in some Xcode configurations
