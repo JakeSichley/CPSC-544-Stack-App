@@ -1,41 +1,46 @@
-//
-//  Stack.swift
-//  StackApp
-//
+import SwiftUI
 
-import Foundation
-
+@Observable
 public final class Stack<T> {
     
     // MARK: - Properties
     
-    private var stack: [T]
+    public private(set) var contents: [IdentifiableContent<T>]
     
     public var currentSize: Int {
-        return stack.count
+        return contents.count
+    }
+    
+    public var isEmpty: Bool {
+        return contents.isEmpty
+    }
+    
+    public var isNotEmpty: Bool {
+        return !isEmpty
     }
     
     // MARK: - Lifecycle
     
     public init() {
-        stack = []
+        contents = []
     }
     
     public init(_ elements: [T]) {
-        stack = elements
+        contents = elements.map { .init($0) }
     }
     
     // MARK: - Tasks
     
     public func push(_ element: T) {
-        stack.append(element)
+        contents.append(.init(element))
     }
     
+    @discardableResult
     public func pop() -> T? {
-        return stack.popLast()
+        return contents.popLast()?.value
     }
     
     public func peek() -> T? {
-        return stack.last
+        return contents.last?.value
     }
 }
