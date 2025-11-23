@@ -28,14 +28,14 @@ public struct ToastView: View {
             image
                 .resizable()
                 .scaledToFill()
-                .frame(width: 24, height: 24)
+                .frame(width: 18, height: 18)
             
             Text(toast.message)
                 .font(.caption)
                 .foregroundColor(.black)
         }
         .padding(.horizontal, .x1)
-        .padding(.vertical, .x1)
+        .padding(.vertical, .x1_5)
         .background(
             RoundedRectangle(cornerRadius: .x2)
                 .fill(.white)
